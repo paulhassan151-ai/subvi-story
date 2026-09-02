@@ -1,0 +1,727 @@
+```css
+/* =====================================================
+   SUB^VI — THE STORY
+   Cinematic Emotional Website
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #050609;
+    color: #f5f5f5;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* ================= GENERAL ================= */
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.section {
+    padding: 110px 7%;
+    background: #07090d;
+}
+
+.dark-section {
+    padding: 110px 7%;
+    background: #020306;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.section-title p,
+.small-title {
+    color: #c99a3e;
+    letter-spacing: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.section-title h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(38px, 5vw, 65px);
+    font-weight: 600;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+
+    background: rgba(3, 4, 7, 0.75);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo,
+.footer-logo {
+    font-size: 25px;
+    font-weight: 700;
+    color: #d4a344;
+    letter-spacing: 2px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a {
+    font-size: 14px;
+    color: #ddd;
+    transition: .3s;
+}
+
+.navbar nav a:hover {
+    color: #d4a344;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.95),
+            rgba(0,0,0,.65),
+            rgba(0,0,0,.25)
+        ),
+        url("https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=2000&q=85");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    padding: 100px 7%;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(201,154,62,.10),
+            transparent 35%
+        );
+}
+
+.hero-content {
+    position: relative;
+    max-width: 700px;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(80px, 13vw, 170px);
+    line-height: .85;
+    margin: 10px 0;
+    letter-spacing: -5px;
+}
+
+.hero h2 {
+    color: #d4a344;
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.hero-text {
+    color: #ddd;
+    max-width: 580px;
+    font-size: 17px;
+}
+
+.quote {
+    margin: 35px 0;
+    padding: 20px 25px;
+    max-width: 520px;
+
+    border-left: 3px solid #c99a3e;
+    background: rgba(255,255,255,.05);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    font-style: italic;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 25px;
+    border-radius: 5px;
+    transition: .3s;
+    font-size: 14px;
+}
+
+.btn.primary {
+    background: #c99a3e;
+    color: #080808;
+}
+
+.btn.secondary {
+    border: 1px solid rgba(255,255,255,.5);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.story-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 100px;
+    position: relative;
+}
+
+.story-card.reverse .story-image {
+    order: 2;
+}
+
+.story-card.reverse .story-content {
+    order: 1;
+}
+
+.story-image {
+    height: 430px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+.story-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.5),
+        transparent
+    );
+}
+
+.story-image img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform .8s ease;
+}
+
+.story-card:hover img {
+    transform: scale(1.05);
+}
+
+.story-number {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+    background: #c99a3e;
+    color: #080808;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+    z-index: 5;
+}
+
+.story-content h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 43px;
+    margin-bottom: 18px;
+    color: #d4a344;
+}
+
+.story-content p {
+    color: #aaa;
+    margin-bottom: 18px;
+}
+
+/* ================= INFO CARDS ================= */
+
+.cards {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.info-card {
+    padding: 35px 25px;
+    min-height: 250px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.015)
+    );
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+
+    transition: .4s;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(201,154,62,.5);
+}
+
+.info-card span {
+    display: block;
+    font-size: 38px;
+    color: #c99a3e;
+    margin-bottom: 15px;
+}
+
+.info-card h3 {
+    margin-bottom: 12px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+}
+
+.info-card p {
+    color: #999;
+    font-size: 14px;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 330px;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    height: 100%;
+    object-fit: cover;
+    transition: .6s;
+    filter: brightness(.75);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+    filter: brightness(1);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    padding: 30px 20px 18px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,.9)
+    );
+
+    font-size: 14px;
+}
+
+/* ================= LETTER ================= */
+
+.letter-section {
+    padding: 130px 7%;
+    background:
+        linear-gradient(
+            rgba(0,0,0,.75),
+            rgba(0,0,0,.9)
+        ),
+        url("https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1800&q=80");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.letter {
+    max-width: 800px;
+    margin: auto;
+    padding: 60px;
+
+    background: rgba(15,15,15,.88);
+    border: 1px solid rgba(201,154,62,.3);
+    border-radius: 10px;
+}
+
+.letter h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 55px;
+    margin: 20px 0 35px;
+    color: #d4a344;
+}
+
+.letter-text p {
+    color: #bbb;
+    margin-bottom: 22px;
+}
+
+.signature {
+    margin-top: 40px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+}
+
+/* ================= HOPE ================= */
+
+.hope-section {
+    min-height: 80vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 100px 7%;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.8)
+        ),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2000&q=85");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hope-content {
+    max-width: 800px;
+}
+
+.hope-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(55px, 8vw, 100px);
+    color: white;
+    margin-bottom: 20px;
+}
+
+.hope-content p {
+    color: #ddd;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.big-quote {
+    margin-top: 45px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 27px;
+    font-style: italic;
+    color: #d4a344;
+}
+
+/* ================= FINAL ================= */
+
+.final-section {
+    min-height: 75vh;
+    padding: 120px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    background: #030406;
+}
+
+.final-section h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(65px, 12vw, 150px);
+    color: #d4a344;
+    margin: 15px 0 30px;
+}
+
+.final-section > p:not(.small-title) {
+    color: #bbb;
+    font-size: 19px;
+    margin: 4px;
+}
+
+.final-line {
+    margin-top: 35px;
+    font-family: "Cormorant Garamond", serif;
+    color: #d4a344;
+    font-size: 28px;
+    font-style: italic;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    background: #010204;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+footer p {
+    color: #777;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+/* ================= LIGHTBOX ================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,.95);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2000;
+    padding: 30px;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 900px;
+    max-height: 85vh;
+    object-fit: contain;
+}
+
+.close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+
+    font-size: 45px;
+    cursor: pointer;
+    color: white;
+}
+
+/* ================= SCROLL REVEAL ================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 850px) {
+
+    .navbar nav {
+        position: absolute;
+        top: 75px;
+        right: 0;
+
+        width: 100%;
+        padding: 25px;
+
+        display: none;
+        flex-direction: column;
+        align-items: center;
+
+        background: rgba(3,4,7,.97);
+    }
+
+    .navbar nav.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero {
+        padding: 110px 6%;
+        background-position: 65% center;
+    }
+
+    .hero h1 {
+        font-size: 85px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    .story-card,
+    .story-card.reverse {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .story-card.reverse .story-image,
+    .story-card.reverse .story-content {
+        order: initial;
+    }
+
+    .story-number {
+        display: none;
+    }
+
+    .story-image {
+        height: 350px;
+    }
+
+    .story-content h3 {
+        font-size: 38px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .letter {
+        padding: 35px 25px;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .section,
+    .dark-section {
+        padding: 80px 5%;
+    }
+
+    .hero h1 {
+        font-size: 70px;
+    }
+
+    .hero-text {
+        font-size: 15px;
+    }
+
+    .quote {
+        font-size: 18px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+        height: 300px;
+    }
+
+    .letter h2 {
+        font-size: 45px;
+    }
+
+    .hope-content h2 {
+        font-size: 65px;
+    }
+
+}
+
+/* ================= CUSTOM SCROLLBAR ================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #030406;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8d6928;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c99a3e;
+}
+```
