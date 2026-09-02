@@ -576,16 +576,25 @@ footer p {
 }
 
 /* ================= SCROLL REVEAL ================= */
+/* ================= SCROLL REVEAL ================= */
 
 .reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: 1s ease;
-}
-
-.reveal.active {
     opacity: 1;
     transform: translateY(0);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Animation is only activated when JavaScript is working */
+
+.js-enabled .reveal {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.js-enabled .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 }
 
 /* ================= MOBILE ================= */
